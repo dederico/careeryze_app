@@ -78,7 +78,7 @@ function Chatty() {
   return (
     <div className="flex flex-col pt-4 w-full px-8 items-center gap-2">
       <div>
-        <h1 className="text-2xl font-bold w-full text-center">Cappuccino 💛</h1>
+        <h1 className="text-2xl font-bold w-full text-center">Careeryze 🚀</h1>
       </div>
       <div className="h-96 w-full bg-gray-900 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
         <div className="flex flex-col gap-2">
