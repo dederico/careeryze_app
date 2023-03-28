@@ -9,4 +9,9 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = nextConfig,
+{
+  env: {
+    API_ENDPOINT: 'careeryze-backend.vercel.app' //replace this with your backend API endpoint URL
+  }
+}

@@ -36,7 +36,7 @@ function Chatty() {
     setChatMessages(messages);
 
     setQuery("");
-    const response = await fetch("https://careeryze-backend.herokuapp.com/api/chat", {
+    const response = await fetch("https://careeryze-backend.vercel.app/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
