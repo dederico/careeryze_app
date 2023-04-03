@@ -93,7 +93,7 @@ function Chatty() {
           {answer && <ChatBubble type="assistant" message={answer} />}
           {loading && <ChatBubble type="assistant" message="Loading.." />}
 
-          <ChatBubble type="assistant" message="Hola como te llamas?" />
+          <ChatBubble type="assistant" message="Hola Como te llamas?" />
           {chatMessages.map((message, index) => (
             <ChatBubble
               key={index}
