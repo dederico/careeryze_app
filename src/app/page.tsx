@@ -98,7 +98,7 @@ function Chatty() {
 
           <ChatBubble 
           type="assistant" 
-          message= "Como te llamas?"
+          message= "Hola Como te llamas?"
           />
           {chatMessages.map((message, index) => (
             <ChatBubble
