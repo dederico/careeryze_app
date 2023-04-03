@@ -92,6 +92,19 @@ function Chatty() {
           ))}
           {answer && <ChatBubble type="assistant" message={answer} />}
           {loading && <ChatBubble type="assistant" message="Loading.." />}
+
+          <ChatBubble type="assistant" message="Hola como te llamas?" />
+          {chatMessages.map((message, index) => (
+            <ChatBubble
+              key={index}
+              type={message.role}
+              message={message.content}
+            />
+          ))}
+          {answer && <ChatBubble type="assistant" message={answer} />}
+          {loading && <ChatBubble type="assistant" message="Loading.." />}
+
+
         </div>
         <div ref={scrollToDiv} />
       </div>
