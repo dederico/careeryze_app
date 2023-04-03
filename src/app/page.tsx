@@ -128,7 +128,7 @@ function Chatty() {
           {chatMessages.map((message, index) => (
             <>
               <ChatBubble
-                key={index}
+                key={index || "user"}
                 type={message.role}
                 message={message.content} />
             </>
