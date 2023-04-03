@@ -36,7 +36,7 @@ function Chatty() {
     setChatMessages(messages);
 
     setQuery("");
-    const response = await fetch("https://careeryze-backend.herokuapp.com/api/chat", {
+    let response = await fetch("https://careeryze-backend.herokuapp.com/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,27 +46,50 @@ function Chatty() {
     if (!response.ok) {
       handleError(response.statusText);
     }
-    const json = (await response.json()) as CreateChatCompletionResponse;
-    scrollToBottom();
+
+    let json = (await response.json()) as CreateChatCompletionResponse;
+    let choices = json.choices as ChatCompletionRequestMessage[];
+    let index = 0;
+
+    // loop through the assistant's responses and wait for the user's answer before continuing
+    while (index < choices.length) {
+      setChatMessages((m) => [...m, choices[index]]);
+      index++;
+      if (index === choices.length || choices[index].role === "user") {
+        break;
+      }
+      response = await fetch("https://careeryze-backend.herokuapp.com/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ messages: [...messages, choices[index]] }),
+      });
+      if (!response.ok) {
+        handleError(response.statusText);
+      }
+      json = (await response.json()) as CreateChatCompletionResponse;
+      choices = json.choices as ChatCompletionRequestMessage[];
+    }
+
     try {
       setLoading(false);
-      setChatMessages((m) => [
-        ...m,
-        json.choices[0].message as ChatCompletionRequestMessage,
+      setChatMessages((m) => [...m, json.choices[0].message as ChatCompletionRequestMessage,
       ]);
       setAnswer("");
+      scrollToBottom();
     } catch (error) {
       if (error instanceof Error) {
         handleError(error.message);
       }
     }
-  };
 
-  function handleError(err: string) {
-    setLoading(false);
-    setQuery("");
-    setAnswer("");
-    console.error(err);
+    function handleError(err: string) {
+      setLoading(false);
+      setQuery("");
+      setAnswer("");
+      console.error(err);
+    }
   }
 
   useEffect(() => {
