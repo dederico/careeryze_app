@@ -36,7 +36,7 @@ function Chatty() {
     setChatMessages(messages);
 
     setQuery("");
-    let response = await fetch("https://careeryze-backend.herokuapp.com/api/chat", {
+    let response = await fetch("http://localhost:8000/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -128,7 +128,7 @@ function Chatty() {
           {chatMessages.map((message, index) => (
             <>
               <ChatBubble
-                key={index}
+                key={index || "user"}
                 type={message.role}
                 message={message.content} />
             </>
