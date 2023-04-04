@@ -129,7 +129,7 @@ function Chatty() {
             <>
               <ChatBubble
                 key={index || "user"}
-                type={message.role}
+                type={message.role || "user"}
                 message={message.content} />
             </>
           ))}
