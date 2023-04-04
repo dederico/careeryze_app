@@ -36,7 +36,7 @@ function Chatty() {
     setChatMessages(messages);
 
     setQuery("");
-    let response = await fetch("http://localhost:8000/api/chat", {
+    let response = await fetch("https://careeryze-frontend/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
