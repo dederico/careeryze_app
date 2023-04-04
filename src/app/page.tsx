@@ -36,7 +36,7 @@ function Chatty() {
     setChatMessages(messages);
 
     setQuery("");
-    let response = await fetch("https://careeryze-frontend/api/chat", {
+    let response = await fetch("https://careeryze-frontend.herokuapp.com/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
