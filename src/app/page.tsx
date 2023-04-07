@@ -82,7 +82,7 @@ function Chatty() {
       </div>
       <div className="h-96 w-full bg-gray-900 rounded-md p-4 overflow-y-auto flex flex-col gap-4">
         <div className="flex flex-col gap-2">
-          <ChatBubble type="assistant" message="Hola, Soy Careeryzer, un modelo de inteligencia artificial encargado de ayudarte y acompañarte en tu carrera profesional,\nEstoy programado para ayudarte a resolver lo siguiente:\n1. ¿Cuales son las mejores rutas para mi carrera?\n2. ¿Cuales son las oportunidades de crecimiento para personas como yo, que no tienen carrera profesional?\n3. ¿Que debo de tomar en cuenta para tomar las mejores decisiones para mi carrera profesional?\n4. ¿A Que tipo de carreras puedo acceder afuera de la manufactura?\n5. ¿Que tipo de habilidades son necesarias triunfar en un trabajo?\n6. ¿Que habilidades blandas son necesarias para triunfar en un trabajo?\n\nUna vez que decidas, escribe la pregunta que quieres que conteste, y empezaremos a conversar." />
+          <ChatBubble type="assistant" message="Hello, Welcome to Careeryzer. Is there anything regarding your Manufacturing career, that I can help you with today?" />
           {chatMessages.map((message, index) => (
             <ChatBubble
               key={index}
